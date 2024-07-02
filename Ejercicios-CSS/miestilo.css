@@ -1,0 +1,27 @@
+
+body{
+    text-align: center;
+    font-family: 'Gigi', cursive;
+    background: linear-gradient(to right, #19ac67, #000000);
+    border-radius: 15px;
+}
+div{
+    border: 2px solid #FFFFFF;
+    margin: 10px;
+    padding: 5px 30px;
+    border-radius: 50%;
+    box-shadow: 10px 12px  #feab5a;
+
+}
+img{
+    width: 50px;
+    float: left;
+}
+div h3{
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 10px 5px #FFFFFF;
+
+
+}
