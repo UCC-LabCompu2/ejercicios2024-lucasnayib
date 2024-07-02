@@ -27,3 +27,59 @@ function cambiar(id, valor) {
         document.unidades.unid_metro.value = 0.0254 * valor;
     }
 }
+
+function convertir(id) {
+    let grad, rad;
+    if (id === "grados") {
+        grad = document.getElementById('grados').value;
+        rad = (grad * Math.PI) / 180;
+    } else if (id === "radianes") {
+        rad = document.getElementById('radianes').value;
+        grad = (rad * 100) / Math.PI;
+    }
+    document.getElementById("grados").value = grad;
+    document.getElementById("radianes").value = rad;
+}
+
+function ocultar(elemento) {
+    if (elemento === "val_mostrar") {
+        document.getElementById("divMO").style.display = "block";
+
+    } else if (elemento === "val_ocultar") {
+        document.getElementById("divMO").style.display = "none";
+    }
+}
+
+function suma() {
+    let num1 = Number(document.getElementsByName("sum_num1")[0].value);
+    let num2 = Number(document.getElementsByName("sum_num2")[0].value);
+    document.getElementsByName("sum_total")[0].innerHTML = num1 + num2;
+    let num3 = (document.getElementsByName("res_num1")[0].value);
+    let num4 = Number(document.getElementsByName("res_num2")[0].value);
+    document.getElementsByName("res_total")[0].innerHTML = num3 - num4;
+    let num5 = Number(document.getElementsByName("mul_num1")[0].value);
+    let num6 = Number(document.getElementsByName("mul_num2")[0].value);
+    document.getElementsByName("mul_total")[0].innerHTML = num5 * num6;
+    let num7 = Number(document.getElementsByName("div_num1")[0].value);
+    let num8 = Number(document.getElementsByName("div_num2")[0].value);
+    document.getElementsByName("div_total")[0].innerHTML = num7 / num8;
+
+}
+
+function cargar(){
+    let cant, ud, urlcomp;
+    cant= document.getElementById("distancia").value;
+    ud= document.getElementsByName("unidades")[0].value;
+
+    urlcomp= "segundaWeb.html#" + "#" + ud;
+    window.open(urlcomp);
+}
+function cargarresultado(){
+    let urlComp, can, un;
+    urlComp= window.location.href.split("/")[5];
+
+    can= urlComp.split("#")[1];
+    un=urlComp.split("#")[2];
+    document.getElementById("dist").value= can + "" + un;
+}
+
