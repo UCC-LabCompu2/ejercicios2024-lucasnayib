@@ -137,7 +137,6 @@ function limpiar(){
     let ctx = canvas.getContext("2d");
 
     canvas.width = canvas.width;
-
 }
 function cuadriculado() {
     const canvas = document.getElementById("myCanvas");
@@ -175,4 +174,24 @@ function dibujarImagen(posx, posy){
     }
 
 }
+x=0;
+dx=2;
+let animar = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const img = new Image();
+    img.src = "images/auto.png";
+
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+    }
+
+    if(x>canvas.width){
+        x=0;
+    }
+    x+=dx;
+}
+
 
