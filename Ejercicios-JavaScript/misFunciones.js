@@ -66,20 +66,37 @@ function suma() {
 
 }
 
-function cargar(){
+function cargar() {
     let cant, ud, urlcomp;
-    cant= document.getElementById("distancia").value;
-    ud= document.getElementsByName("unidades")[0].value;
+    cant = document.getElementById("distancia").value;
+    ud = document.getElementsByName("unidades")[0].value;
 
-    urlcomp= "segundaWeb.html#" + "#" + ud;
+    urlcomp = "segundaWeb.html#" + "#" + ud;
     window.open(urlcomp);
 }
-function cargarresultado(){
-    let urlComp, can, un;
-    urlComp= window.location.href.split("/")[5];
 
-    can= urlComp.split("#")[1];
-    un=urlComp.split("#")[2];
-    document.getElementById("dist").value= can + "" + un;
+function cargarresultado() {
+    let urlComp, can, un;
+    urlComp = window.location.href.split("/")[5];
+
+    can = urlComp.split("#")[1];
+    un = urlComp.split("#")[2];
+    document.getElementById("dist").value = can + "" + un;
 }
+
+function cargarlocal() {
+    let distancia, unidad;
+    distancia = document.getElementById("distancia").value;
+    unidad = document.getElementsByName("unidades")[0].value;
+    localStorage.setItem("distanciaLS", distancia);
+    localStorage.setItem("unidadesLS", unidad);
+    window.open('Pag_2');
+}
+    function resultadolocal() {
+        let cant, un;
+        cant = localStorage.getItem("distanciaLS");
+        un = localStorage.getItem("unidadesLS");
+        document.getElementById("dist").value = cant + " " + un;
+
+    }
 
