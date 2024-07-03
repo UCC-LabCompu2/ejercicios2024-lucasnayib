@@ -99,4 +99,80 @@ function cargarlocal() {
         document.getElementById("dist").value = cant + " " + un;
 
     }
+    function dibujo(){
+    let canvas= document.getElementById("myCanvas");
+    let ctx= canvas.getContext("2d");
+    let ymax= canvas.height;
+    let margen=5;
+    let xmax=canvas.width;
+    ctx.fillStyle= "#333899";
+    ctx.fillRect(margen,ymax-40-margen,40,40);
+    ctx.arc(xmax/2, 20, 40,0, 2* Math.PI);
+    ctx.stroke();
+    ctx.fill();
+    }
+
+let bandera;
+
+function dibujar(event) {
+    let canvas = document.getElementById("dibujo");
+    let ctx = canvas.getContext("2d");
+
+    let posx = event.clientX;
+    let posy = event.clientY;
+    console.log(posx, posy);
+    canvas.onmousedown = function () {
+        bandera = true;
+    };
+    canvas.onmouseup = function () {
+        bandera = false;
+    };
+    if (bandera) {
+        ctx.fillRect(posx, posy, 5, 5);
+        ctx.fill;
+    }
+}
+function limpiar(){
+    let canvas = document.getElementById("dibujo");
+    let ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
+
+}
+function cuadriculado() {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#000000";
+    const xMax = canvas.width;
+    const yMax = canvas.height;
+
+    for (let i = 0; i < yMax; i += 20) {
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(xMax, i);
+        ctx.strokeStyle = "#a19797"
+        ctx.stroke();
+    }
+    for(let i=0;i<xMax;i+=20){
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, yMax);
+        ctx.strokeStyle = "#1b73f8"
+        ctx.stroke();
+    }
+}
+function dibujarImagen(posx, posy){
+    let canvas= document.getElementById("myCanvas");
+    let ctx= canvas.getContext("2d");
+    let img= new Image();
+    img.src="images/auto.png";
+
+    canvas.width = canvas.width;
+
+    img.onload = function () {
+        ctx.drawImage(img, posx, posy);
+
+    }
+
+}
 
